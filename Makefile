@@ -1,2 +1,19 @@
-main:
-	g++ -g src/app.cpp src/config.cpp src/main.cpp src/storage.cpp src/theme.cpp src/ui.cpp src/utils.cpp -lncursesw -o todo
+CXX = g++
+CXXFLAGS = -Wall -Wextra -Wpedantic -g -Iinclude
+LDFLAGS = -lncursesw
+
+SRC = $(wildcard src/*.cpp)
+OBJ = $(SRC:.cpp=.o)
+
+all: clementine
+
+clementine: $(OBJ)
+	$(CXX) $(OBJ) -o $@ $(LDFLAGS)
+
+src/%.o: src/%.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
+
+clean:
+	rm -f $(OBJ) clementine
+
+.PHONY: all clean
