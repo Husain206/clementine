@@ -7,6 +7,18 @@ enum class Priority {
   High,
 };
 
+enum class QuickFilters {
+  All,
+  OpenOnly,
+  DoneOnly,
+  HighPriority,
+};
+
+enum class SortMode {
+  Created,
+  Priority,
+  DueDate,
+};
 
 struct Todo {
   int id = 0;
@@ -19,10 +31,4 @@ struct Todo {
   str created_at;
   str updated_at;
   str due_date;
-};
-
-struct TodoFilter {
-  str catagory = "all";
-  bool show_completed = true;
-  bool show_archived = false;
 };
