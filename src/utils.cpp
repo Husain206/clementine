@@ -69,3 +69,23 @@ str now_timestamp(const str& format){
   
   return str(buffer);
 }
+
+vec<str> split_csv(const str& s){
+  vec<str> out;
+  str current;
+
+  for(char c : s){
+    if(c == ','){
+      current = trim(current);
+      if(!current.empty()) out.push_back(current);
+      current.clear();
+    } else {
+      current.push_back(c);
+    }
+  }
+
+  current = trim(current);
+  if(!current.empty()) out.push_back(current);
+
+  return out;
+}

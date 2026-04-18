@@ -48,3 +48,5 @@ vec<str> split(const str& s, char delimiter);
 // handles "true", "1", "yes", etc
 bool parse_bool(const str& value);
 str now_timestamp(const str& format = "%Y-%m-%d %H:%M");
+
+vec<str> split_csv(const str& s);
