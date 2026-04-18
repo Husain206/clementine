@@ -1,2 +1,2 @@
-![spider](./assets/todo_tui.png)
+![img](./assets/tui.png)
 
